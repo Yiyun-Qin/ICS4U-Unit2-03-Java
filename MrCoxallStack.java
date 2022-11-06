@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 /**
  * The MrCoxall stack.
@@ -13,7 +13,7 @@ public class MrCoxallStack {
    * a list that contains the input number.
    *
    */
-  List<String> stackAsList = new ArrayList<String>();
+  LinkedList<String> stackAsList = new LinkedList<String>();
 
   /**
    * The getStack() getter.
@@ -37,8 +37,29 @@ public class MrCoxallStack {
    * The pop() setter.
    *
    */
-  public void pop() {
+  public String pop() {
     int index = stackAsList.size() - 1;
-    stackAsList.remove(index);
+    final String popNumber;
+    if (index != 0) {
+      popNumber = stackAsList.remove(index);
+    } else {
+      popNumber = "Nothing in the list!";
+    }
+    return popNumber;
+  }
+
+  /**
+   * The peek() setter, show the number on the top of the list.
+   *
+   */
+  public String peek() {
+    int index = stackAsList.size() - 1;
+    final String peekNumber;
+    if (index != 0) {
+      peekNumber = stackAsList.peekLast();
+    } else {
+      peekNumber = "Nothing in the list!";
+    }
+    return peekNumber;
   }
 }
